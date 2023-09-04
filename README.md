@@ -33,3 +33,27 @@ docker rm [hash of the conainer, e.g. from docker ps]
 docker rmi [hash of the image, e.g. from docker images]
 
 ```
+
+### Dockerfile
+
+Sample dockerfile to create a linux box and run a Flask app. Save this file in the project folder. Add a `.dockerignore` file to excludes files not needed in the image, similar to `.gitignore`. This particular file uses the default flask server, and is not recommened for production. 
+
+```dockerfile
+FROM ubuntu:22.04
+
+WORKDIR /app
+
+COPY . .
+
+RUN apt update  && \
+    apt install -y wget lsof python3.10 python3-pip python3-venv && \
+    apt clean && \
+    python3 -m venv .venv && \ 
+    . ./.venv/bin/activate && \
+    python3 -m pip install --upgrade pip && \
+    pip3 install -r requirements.txt && \
+
+CMD ["python3", "-m", "app"]
+
+EXPOSE 80
+```
