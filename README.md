@@ -24,7 +24,10 @@ docker run -d -t -p 5000:80 --name myubuntu1 ubuntu:22.04
 docker stop myubuntu1
 
 # start a container
-docker stop myubuntu1
+docker start myubuntu1
+
+# bash on the container
+docker exec -it myubuntu1 bash
 
 # delete conainer (must be stopped first)
 docker rm [hash of the conainer, e.g. from docker ps]
