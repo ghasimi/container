@@ -35,6 +35,9 @@ docker rm [hash of the conainer, e.g. from docker ps]
 # delete an image
 docker rmi [hash of the image, e.g. from docker images]
 
+# construct a new image from the current container
+docker commit container1 container2
+
 ```
 
 ### Dockerfile
