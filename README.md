@@ -63,3 +63,8 @@ CMD ["python3", "-m", "app"]
 
 EXPOSE 80
 ```
+
+To build the image:
+```
+docker build myimage:mytag .
+```
